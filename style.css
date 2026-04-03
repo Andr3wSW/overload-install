@@ -1,11 +1,28 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #0f172a, #020617);
   color: white;
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  overflow-x: hidden;
 }
 
-/* NAVBAR */
+/* animated background */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59,130,246,0.15), transparent 70%);
+  animation: moveBg 20s linear infinite;
+}
+
+@keyframes moveBg {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(-25%, -25%); }
+  100% { transform: translate(0,0); }
+}
+
+/* NAV */
 .nav {
   position: fixed;
   top: 0;
@@ -13,14 +30,20 @@ body {
   padding: 15px 40px;
   display: flex;
   justify-content: space-between;
-  background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
 }
 
-.nav a {
-  color: white;
-  text-decoration: none;
+.nav-links a {
   margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  transition: 0.2s;
+}
+
+.nav-links a:hover {
+  color: #60a5fa;
 }
 
 /* HERO */
@@ -33,49 +56,55 @@ body {
   text-align: center;
 }
 
-.hero h1 {
-  font-size: 60px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 20px;
-  opacity: 0.8;
+.gradient-text {
+  font-size: 70px;
+  background: linear-gradient(90deg, #3b82f6, #22c55e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* BUTTONS */
-.buttons {
-  margin-top: 30px;
-}
-
 .btn {
-  display: inline-block;
   padding: 15px 25px;
   margin: 10px;
-  background: #2563eb;
-  border-radius: 10px;
+  border-radius: 12px;
   text-decoration: none;
   color: white;
   font-size: 18px;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
-.btn:hover {
+.glow {
+  background: #2563eb;
+  box-shadow: 0 0 15px rgba(37,99,235,0.6);
+}
+
+.glow:hover {
+  box-shadow: 0 0 25px rgba(37,99,235,1);
   transform: scale(1.05);
-  background: #1d4ed8;
 }
 
-/* SECTION */
+.secondary {
+  background: rgba(255,255,255,0.1);
+}
+
+/* SECTIONS */
 .section {
-  padding: 80px 20px;
+  padding: 100px 20px;
   text-align: center;
 }
 
 .card {
-  background: rgba(255,255,255,0.05);
-  padding: 25px;
-  margin: 20px;
-  border-radius: 15px;
   display: inline-block;
-  max-width: 250px;
+  padding: 25px;
+  margin: 15px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(59,130,246,0.4);
 }
