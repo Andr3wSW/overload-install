@@ -6,6 +6,18 @@
 <link rel="stylesheet" href="style.css">
 </head>
 
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("fade-in");
+    }
+  });
+});
+
+document.querySelectorAll(".card").forEach(el => observer.observe(el));
+</script>
+
 <body>
 
 <div class="bg"></div>
