@@ -175,40 +175,6 @@ body {
   max-width: 400px;
 }
 
-.section::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 60px;
-  bottom: 60px;
-  width: 4px;
-  background: rgba(37,99,235,0.4);
-  transform: translateX(-50%);
-  z-index: 1;
-}
-
-/* connect numbers to line */
-.step-number {
-  position: relative;
-}
-
-.step-number::after {
-  content: '';
-  position: absolute;
-  width: 4px;
-  height: 50%;
-  background: rgba(37,99,235,0.8);
-  top: 70px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
-}
-
-/* last step doesn't extend line */
-.step:last-child .step-number::after {
-  display: none;
-}
-
 /* mobile */
 @media (max-width: 800px) {
   .step, .step.reverse {
@@ -223,4 +189,16 @@ body {
   .step-number {
     margin-bottom: 20px;
   }
+
+  .step:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 25px rgba(59,130,246,0.4);
+}
+
+.step img {
+  width: 665px;
+  height: 305px;
+  object-fit: cover;
+  border-radius: 15px;
+  flex-shrink: 0;
 }
