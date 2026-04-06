@@ -144,7 +144,7 @@ body {
 /* alternating */
 .step.reverse {
   flex-direction: row-reverse;
-  text-align: left;
+  text-align: center;
 }
 
 /* glowing step numbers */
